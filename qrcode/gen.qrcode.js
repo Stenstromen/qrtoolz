@@ -16,4 +16,14 @@ async function qrcodeGen(link) {
     return qrImage;
 };
 
+async function genUrl(link) {
+  //URLTO: google.com
+  const genUrl = await QRCode.toDataURL(link, opts);
+  return genUrl;
+}
+
+async function genEmail(address, subject, body) {
+  // mailto:ADDRESS?subject=SUBJECT&body=BODY
+}
+
 module.exports = qrcodeGen;
