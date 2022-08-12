@@ -5,6 +5,7 @@ function sendIndex(req, res) {
 }
 
 function sendQr(req, res) {
+    
     res.end();
 }
 
