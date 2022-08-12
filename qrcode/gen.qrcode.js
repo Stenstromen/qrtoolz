@@ -26,4 +26,24 @@ async function genEmail(address, subject, body) {
   // mailto:ADDRESS?subject=SUBJECT&body=BODY
 }
 
+async function genTelnumber(num) {
+  // tel:+466666666666
+}
+
+async function genvCard(firstn, lastn, fulln, title, email, emailtype, tel, teltype, url, urltype) {
+/*
+BEGIN:VCARD
+VERSION:3.0
+N:Owen;Sean;;;
+FN:Sean Owen
+TITLE:Software Engineer
+TEL;TYPE=cell:(123) 555-5832
+EMAIL;TYPE=INTERNET;TYPE=WORK;TYPE=PREF:srowen@google.com
+URL;TYPE=Homepage:https://example.com
+END:VCARD
+*/
+}
+
+
+
 module.exports = qrcodeGen;
