@@ -4,7 +4,7 @@ function sendIndex(req, res) {
   res.render("index.ejs");
 }
 
-function sendQr(req, res) {
+async function sendQr(req, res) {
   /*
   genUrl (one field),
   genEmail (two fields),
@@ -23,15 +23,23 @@ function sendQr(req, res) {
 
   console.log(opt);
   console.log(msg);
-  
-  if (opt === "url"||"tel"||"facetime"||"facetimeaudio") {
+
+  if (
+    opt === "url" ||
+    opt === "tel" ||
+    opt === "facetime" ||
+    opt === "facetimeaudio"
+  ) {
     console.log("First field");
-  } else if (opt === "email"||"sms"||"wifi") {
+    if (opt === "url") {
+        res.send(await qrGen.genUrl(msg));
+    }
+  } else if (opt === "email" || opt === "sms" || opt === "wifi") {
     console.log("Second field");
-  } else if (opt === "geo"||"event") {
+  } else if (opt === "geo" || opt === "event") {
     console.log("Third field");
   }
-  
+
   res.end();
 }
 

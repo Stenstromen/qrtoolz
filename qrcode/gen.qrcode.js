@@ -18,8 +18,8 @@ async function qrcodeGen(link) {
 
 async function genUrl(link) {
   //URLTO: google.com
-  const urlTo = `URLTO: ${link}`;
-  const genUrl = await QRCode.toDataURL(urlTo, opts);
+  const urlTo = `URLTO:${link}`;
+  const genUrl = await QRCode.toDataURL(link, opts);
   return genUrl;
 }
 
