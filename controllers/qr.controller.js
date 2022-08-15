@@ -33,6 +33,8 @@ async function sendQr(req, res) {
     console.log("First field");
     if (opt === "url") {
         res.send(await qrGen.genUrl(msg));
+    } else if (opt === "tel") {
+        res.send(await qrGen.genTelnumber(msg));
     }
   } else if (opt === "email" || opt === "sms" || opt === "wifi") {
     console.log("Second field");

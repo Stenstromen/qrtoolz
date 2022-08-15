@@ -1,7 +1,6 @@
 <div class="main">
     <form action="/" method="post">
-        <input type="text" name="msg" value="enter here">
-        <select name="opt">
+        <select name="opt" onchange="showOnChange(this)">
             <option name="url" value="url">Link to Webpage</option>
             <option name="tel" value="tel">Telephone Number</option>
             <option name="facetime" value="facetime">Facetime (Telephone Number or Email)</option>
@@ -13,5 +12,14 @@
             <option name="event" value="event">Calendar Event</option>
         </select>
         <input type="submit" value="Send">
+<%- include("url.ejs") %>
+<%- include("tel.ejs") %>
+<%- include("facetime.ejs") %>
+<%- include("facetimeaudio.ejs") %>
+<%- include("email.ejs") %>
+<%- include("sms.ejs") %>
+<%- include("wifi.ejs") %>
+<%- include("geo.ejs") %>
+<%- include("event.ejs") %>        
     </form>
 </div>
