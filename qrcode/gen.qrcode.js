@@ -3,11 +3,11 @@ const QRCode = require("qrcode");
 const opts = {
   errorCorrectionLevel: "H",
   type: "terminal",
-  quality: 0.95,
+  quality: 1,
   margin: 1,
   color: {
-    dark: "#008000",
-    light: "#d3d3d3",
+    dark: "#000000",
+    light: "#ffffff",
   },
 };
 

@@ -1,9 +1,71 @@
+body {
+    background-color: #eceeef;
+}
 
+header {
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+input[type=submit] {
+    color: white;
+    background-color: #90c52d;
+    border: none;
+    border-radius: 25px;
+}
 
 .url {
-    display: block;
+  display: block;
 }
 
 .tel {
-    display: none;
+  display: none;
+}
+
+/* iPhone Portrait */
+@media screen and (min-width: 390px) {
+  select {
+    width: 100%;
+    font-size: x-large;
+    font-weight: bold;
+  }
+
+  .generator {
+    background-color: #ffffff;
+    height: 100%;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 20px;
+  }
+
+  .url {
+    display: grid;
+    grid-template-rows: 200px 200px 200px;
+  }
+
+  .url > form {
+    padding-top: 15px;
+    display: grid;
+    grid-template-rows: 40px 30px 470px;
+  }
+
+  .url > form > input[type=submit] {
+    padding: 10px;
+    font-size: x-large;
+  }
+
+  .tel {
+    grid-template-rows: 200px 200px 200px;
+  }
+
+  .tel > form {
+    padding-top: 15px;
+    display: grid;
+    grid-template-rows: 40px 30px 470px;
+  }
+
+  .tel > form > input[type=submit] {
+    padding: 10px;
+    font-size: x-large;
+  }
 }

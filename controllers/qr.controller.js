@@ -23,6 +23,7 @@ async function sendQr(req, res) {
 
   console.log(opt);
   console.log(msg);
+  console.log(req.body)
 
   if (
     opt === "url" ||

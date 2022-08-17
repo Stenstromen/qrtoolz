@@ -3,7 +3,7 @@
   function showOnChange(element) {
     let value = element.value
     if (value == "url") {
-        document.getElementById("url").style.display = "block"
+        document.getElementById("url").style.display = "grid"
         document.getElementById("email").style.display = "none"
         document.getElementById("event").style.display = "none"
         document.getElementById("facetime").style.display = "none"
@@ -20,7 +20,7 @@
         document.getElementById("facetimeaudio").style.display = "none"
         document.getElementById("geo").style.display = "none"
         document.getElementById("sms").style.display = "none"
-        document.getElementById("tel").style.display = "block"
+        document.getElementById("tel").style.display = "grid"
         document.getElementById("wifi").style.display = "none"
     } else if (value == "facetime") {
         document.getElementById("url").style.display = "none"

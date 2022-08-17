@@ -1,4 +1,37 @@
 <div class="url" id="url">
-    <h1>Testing testing</h1>
-    <input type="text" name="msg" value="Enter URL">
+    <form method="POST" id="url">
+     <input type="hidden" name="opt" id="opt" value="url">
+     <input type="text" name="msg" id="msg" placeholder="Enter URL"><br/>
+     <img src="https://http.cat/200.jpg" width="330px" id="resqr" />
+     <input type="submit" id="submit" opt="url" value="↳ Generate QR Code">
+    </form>
+    <script type="module">
+        const instaData = document.getElementById("msg");
+        const buttonForm = document.getElementById("submit");
+        const resqr = document.getElementById("resqr");
+        const postType = document.getElementById("opt");
+  
+        buttonForm.addEventListener("click", (event) => {
+          console.log("here");
+  
+          event.preventDefault();
+  
+          let myHeaders = new Headers();
+          myHeaders.append("Content-Type", "application/json");
+  
+          fetch("/", {
+            method: "POST",
+            headers: myHeaders,
+            body: JSON.stringify({
+              opt: postType.value,
+              msg: instaData.value,
+            }),
+          })
+            .then((response) => response.text())
+            .then((data) => {
+              resqr.src = data;
+            })
+            .catch((err) => console.error(err));
+        });;
+      </script>
 </div>
