@@ -68,7 +68,7 @@ async function genSms(num, msg) {
     Message in urlencode format
     sms:6666666666:message
   */
-  const sms = `sms:${num}:${msg}`;
+  const sms = `SMSTO:${num}:${msg}`;
   const genSms = await QRCode.toDataURL(sms, opts);
   return genSms;
 }

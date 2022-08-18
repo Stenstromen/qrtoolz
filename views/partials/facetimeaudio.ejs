@@ -1,3 +1,47 @@
 <div class="facetimeaudio" id="facetimeaudio">
-    
+  <form method="POST" id="facetimeaudio">
+    <input type="hidden" name="opt" id="optc" value="facetimeaudio" />
+    <input
+      type="text"
+      name="msg"
+      id="msgc"
+      placeholder="Enter Telephone Number or Email"
+    /><br />
+    <img src="https://http.cat/200.jpg" width="330px" id="resqrc" />
+    <input
+      type="submit"
+      id="submitc"
+      opt="facetimeaudio"
+      value="↳ Generate QR Code"
+    />
+  </form>
+  <script type="module">
+    const instaData = document.getElementById("msgc");
+    const buttonForm = document.getElementById("submitc");
+    const resqr = document.getElementById("resqrc");
+    const postType = document.getElementById("optc");
+
+    buttonForm.addEventListener("click", (event) => {
+      console.log("here");
+
+      event.preventDefault();
+
+      let myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      fetch("/", {
+        method: "POST",
+        headers: myHeaders,
+        body: JSON.stringify({
+          opt: postType.value,
+          msg: instaData.value,
+        }),
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          resqr.src = data;
+        })
+        .catch((err) => console.error(err));
+    });
+  </script>
 </div>

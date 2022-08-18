@@ -22,6 +22,22 @@ input[type=submit] {
   display: none;
 }
 
+.facetime {
+  display: none;
+}
+
+.facetimeaudio {
+  display: none;
+}
+
+.sms {
+  display: none;
+}
+
+.email {
+  display: none;
+}
+
 /* iPhone Portrait */
 @media screen and (min-width: 390px) {
   select {
@@ -65,6 +81,51 @@ input[type=submit] {
   }
 
   .tel > form > input[type=submit] {
+    padding: 10px;
+    font-size: x-large;
+  }
+
+  .facetime {
+    grid-template-rows: 200px 200px 200px;
+  }
+
+  .facetime > form {
+    padding-top: 15px;
+    display: grid;
+    grid-template-rows: 40px 30px 470px;
+  }
+
+  .facetime > form > input[type=submit] {
+    padding: 10px;
+    font-size: x-large;
+  }
+
+  .facetimeaudio {
+    grid-template-rows: 200px 200px 200px;
+  }
+
+  .facetimeaudio > form {
+    padding-top: 15px;
+    display: grid;
+    grid-template-rows: 40px 30px 470px;
+  }
+
+  .facetimeaudio > form > input[type=submit] {
+    padding: 10px;
+    font-size: x-large;
+  }
+
+  .sms {
+    grid-template-rows: 200px 200px 200px;
+  }
+
+  .sms > form {
+    padding-top: 15px;
+    display: grid;
+    grid-template-rows: 40px 30px 470px;
+  }
+
+  .sms > form > input[type=submit] {
     padding: 10px;
     font-size: x-large;
   }

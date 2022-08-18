@@ -20,11 +20,35 @@ async function sendQr(req, res) {
 
   let opt = req.body.opt;
   let msg = req.body.msg;
+  let msgb = req.body.msgb;
+  let msgc = req.body.msgc;
 
-  console.log(opt);
-  console.log(msg);
-  console.log(req.body)
+  console.log(req.body);
 
+  switch (opt) {
+    case "url": // URL QR Generator
+      res.send(await qrGen.genUrl(msg));
+      break;
+    case "tel":
+      res.send(await qrGen.genTelnumber(msg)); // Telephone number QR Generator
+      break;
+    case "facetime":
+      res.send(await qrGen.genFacetime(msg)); // Facetime call QR Generator
+      break;
+    case "facetimeaudio":
+      res.send(await qrGen.genFacetimeAudio(msg)); //Facetime Audio call QR Generator
+      break;
+    case "sms":
+      res.send(await qrGen.genSms(msg, msgb)); //SMS Message QR Generator
+      break;
+    case "email":
+      res.send(await qrGen.genEmail(msg, msgb, msgc)); //Email Message QR Generator
+      break;
+    default:
+      res.send("Error 503");
+  }
+
+  /*
   if (
     opt === "url" ||
     opt === "tel" ||
@@ -42,7 +66,7 @@ async function sendQr(req, res) {
   } else if (opt === "geo" || opt === "event") {
     console.log("Third field");
   }
-
+  */
   res.end();
 }
 

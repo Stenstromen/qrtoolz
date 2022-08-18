@@ -1,3 +1,50 @@
 <div class="email" id="email">
-    
+  <form method="POST" id="email">
+    <input type="hidden" name="opt" id="opte" value="email" />
+    <input type="text" name="msg" id="msge" placeholder="Address" /><br />
+    <input type="text" name="msgec" id="msgec" placeholder="Subject" />
+    <textarea
+      type="text"
+      name="msgeb"
+      id="msgeb"
+      placeholder="Message"
+    ></textarea
+    ><br />
+    <img src="" width="330px" id="resqrd" alt="" />
+    <input type="submit" id="submitd" opt="email" value="↳ Generate QR Code" />
+  </form>
+  <script type="module">
+    const instaData = document.getElementById("msge");
+    const instaDatab = document.getElementById("msgeb");
+    const instaDatac = document.getElementById("msgec");
+    const buttonForm = document.getElementById("submitd");
+    const resqr = document.getElementById("resqrd");
+    const postType = document.getElementById("opte");
+
+    buttonForm.addEventListener("click", (event) => {
+      console.log("here");
+
+      event.preventDefault();
+
+      let myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      fetch("/", {
+        method: "POST",
+        headers: myHeaders,
+        body: JSON.stringify({
+          opt: postType.value,
+          msg: instaData.value,
+          msgb: instaDatab.value,
+          msgc: instaDatac.value,
+        }),
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("msgeb").style.display = "none";
+          resqr.src = data;
+        })
+        .catch((err) => console.error(err));
+    });
+  </script>
 </div>

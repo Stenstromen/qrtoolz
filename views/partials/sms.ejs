@@ -1,3 +1,51 @@
 <div class="sms" id="sms">
-    
+  <form method="POST" id="sms">
+    <input type="hidden" name="opt" id="optd" value="sms" />
+    <input
+      type="text"
+      name="msg"
+      id="msgd"
+      placeholder="Enter Telephone Number"
+    /><br />
+    <textarea
+      type="text"
+      name="msgdb"
+      id="msgdb"
+      placeholder="SMS Message"
+    ></textarea><br />
+    <img src="" width="330px" id="resqrd" alt="" />
+    <input type="submit" id="submitd" opt="sms" value="↳ Generate QR Code" />
+  </form>
+  <script type="module">
+    const instaData = document.getElementById("msgd");
+    const instaDatab = document.getElementById("msgdb");
+    const buttonForm = document.getElementById("submitd");
+    const resqr = document.getElementById("resqrd");
+    const postType = document.getElementById("optd");
+
+    buttonForm.addEventListener("click", (event) => {
+      console.log("here");
+
+      event.preventDefault();
+
+      let myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      fetch("/", {
+        method: "POST",
+        headers: myHeaders,
+        body: JSON.stringify({
+          opt: postType.value,
+          msg: instaData.value,
+          msgb: instaDatab.value,
+        }),
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("msgdb").style.display = "none";
+          resqr.src = data;
+        })
+        .catch((err) => console.error(err));
+    });
+  </script>
 </div>
